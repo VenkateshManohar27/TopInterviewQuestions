@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: nums1 = [1,2,2,1], nums2 = [2,2]
@@ -19,13 +19,13 @@ import java.util.List;
  * Output: [4,9]
  * Explanation: [9,4] is also accepted.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= nums1.length, nums2.length <= 1000
  * 0 <= nums1[i], nums2[i] <= 1000
  * <p>
- *
+ * <p>
  * Follow up:
  * <p>
  * What if the given array is already sorted? How would you optimize your algorithm?
@@ -43,12 +43,12 @@ public class Intersection2Arrays {
         int n = nums2.length;
         int i = 0, j = 0;
 
-        while(i < m && j < n) {
-            if(nums1[i] < nums2[j]){
+        while (i < m && j < n) {
+            if (nums1[i] < nums2[j]) {
                 i++;
-            }else if (nums2[j] < nums1[i]){
+            } else if (nums2[j] < nums1[i]) {
                 j++;
-            }else if(nums1[i] == nums2[j]){
+            } else if (nums1[i] == nums2[j]) {
                 li.add(nums1[i]);
                 i++;
                 j++;
@@ -57,7 +57,7 @@ public class Intersection2Arrays {
 
         int[] res = new int[li.size()];
 
-        for(int k = 0; k < res.length; k++) {
+        for (int k = 0; k < res.length; k++) {
             res[k] = li.get(k);
         }
 

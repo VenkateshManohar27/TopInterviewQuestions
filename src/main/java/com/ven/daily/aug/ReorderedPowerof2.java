@@ -7,8 +7,8 @@ import java.util.Arrays;
  * <p>
  * Return true if and only if we can do this so that the resulting number is a power of two.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: n = 1
@@ -18,7 +18,7 @@ import java.util.Arrays;
  * Input: n = 10
  * Output: false
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= n <= 109
@@ -27,18 +27,18 @@ public class ReorderedPowerof2 {
     public boolean reorderedPowerOf2(int n) {
         int[] A = count(n);
 
-        for(int i = 0; i < 31; i++) {
-            if(Arrays.equals(A, count(1 << i))){
+        for (int i = 0; i < 31; i++) {
+            if (Arrays.equals(A, count(1 << i))) {
                 return true;
             }
         }
         return false;
     }
 
-    private int[] count(int n){
+    private int[] count(int n) {
         int[] res = new int[10];
 
-        while(n > 0) {
+        while (n > 0) {
             res[n % 10]++;
             n /= 10;
         }

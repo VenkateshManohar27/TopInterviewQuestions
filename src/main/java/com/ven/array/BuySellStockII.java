@@ -7,8 +7,8 @@ package com.ven.array;
  * <p>
  * Find and return the maximum profit you can achieve.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: prices = [7,1,5,3,6,4]
@@ -28,7 +28,7 @@ package com.ven.array;
  * Output: 0
  * Explanation: There is no way to make a positive profit, so we never buy the stock to achieve the maximum profit of 0.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= prices.length <= 3 * 104
@@ -39,10 +39,10 @@ public class BuySellStockII {
         int prev = prices[0];
         int profit = 0;
         int max = 0;
-        for(int i = 1; i < prices.length; i++) {
+        for (int i = 1; i < prices.length; i++) {
             int curr = prices[i];
 
-            if(curr - prev < max) {
+            if (curr - prev < max) {
                 profit += max;
                 prev = curr;
                 max = 0;

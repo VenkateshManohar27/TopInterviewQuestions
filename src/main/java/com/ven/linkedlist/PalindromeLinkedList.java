@@ -3,26 +3,26 @@ package com.ven.linkedlist;
 /**
  * Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
- *
+ * <p>
  * Input: head = [1,2,2,1]
  * Output: true
  * Example 2:
  * <p>
- *
+ * <p>
  * Input: head = [1,2]
  * Output: false
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * The number of nodes in the list is in the range [1, 105].
  * 0 <= Node.val <= 9
  * <p>
- *
+ * <p>
  * Follow up: Could you do it in O(n) time and O(1) space?
  */
 public class PalindromeLinkedList {
@@ -30,16 +30,16 @@ public class PalindromeLinkedList {
         int length = 0;
         ListNode curr = head;
 
-        while(curr != null) {
+        while (curr != null) {
             length++;
             curr = curr.next;
         }
 
-        int mid = length / 2 ;
+        int mid = length / 2;
         boolean odd = length % 2 == 1;
         ListNode reverse = new ListNode();
         curr = head;
-        while(mid > 0) {
+        while (mid > 0) {
             ListNode node = curr;
             curr = curr.next;
             node.next = reverse.next;
@@ -47,12 +47,12 @@ public class PalindromeLinkedList {
             mid--;
         }
 
-        if(odd) {
+        if (odd) {
             curr = curr.next;
         }
         reverse = reverse.next;
-        while(reverse != null && curr != null){
-            if(reverse.val != curr.val) {
+        while (reverse != null && curr != null) {
+            if (reverse.val != curr.val) {
                 return false;
             }
             reverse = reverse.next;

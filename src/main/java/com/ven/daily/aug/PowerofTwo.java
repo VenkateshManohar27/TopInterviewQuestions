@@ -5,8 +5,8 @@ package com.ven.daily.aug;
  * <p>
  * An integer n is a power of two, if there exists an integer x such that n == 2x.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: n = 1
@@ -22,12 +22,12 @@ package com.ven.daily.aug;
  * Input: n = 3
  * Output: false
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * -231 <= n <= 231 - 1
  * <p>
- *
+ * <p>
  * Follow up: Could you solve it without loops/recursion?
  */
 public class PowerofTwo {

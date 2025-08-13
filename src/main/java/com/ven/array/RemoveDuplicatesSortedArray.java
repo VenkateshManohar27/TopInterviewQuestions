@@ -19,12 +19,12 @@ package com.ven.array;
  * <p>
  * assert k == expectedNums.length;
  * for (int i = 0; i < k; i++) {
- *     assert nums[i] == expectedNums[i];
+ * assert nums[i] == expectedNums[i];
  * }
  * If all assertions pass, then your solution will be accepted.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: nums = [1,1,2]
@@ -38,7 +38,7 @@ package com.ven.array;
  * Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
  * It does not matter what you leave beyond the returned k (hence they are underscores).
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= nums.length <= 3 * 104
@@ -50,8 +50,8 @@ public class RemoveDuplicatesSortedArray {
     public int removeDuplicates(int[] nums) {
         int index = 0;
 
-        for(int i = 1; i < nums.length; i++) {
-            if(nums[index] != nums[i]){
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[index] != nums[i]) {
                 nums[++index] = nums[i];
             }
         }

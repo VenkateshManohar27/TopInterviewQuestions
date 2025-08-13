@@ -11,8 +11,8 @@ package com.ven.strings;
  * Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range. Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1.
  * Return the integer as the final result.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: s = "42"
@@ -23,11 +23,11 @@ package com.ven.strings;
  * <p>
  * The underlined characters are what is read in and the caret is the current reader position.
  * Step 1: "42" (no characters read because there is no leading whitespace)
- *          ^
+ * ^
  * Step 2: "42" (no characters read because there is neither a '-' nor '+')
- *          ^
+ * ^
  * Step 3: "42" ("42" is read in)
- *            ^
+ * ^
  * Example 2:
  * <p>
  * Input: s = " -042"
@@ -37,11 +37,11 @@ package com.ven.strings;
  * Explanation:
  * <p>
  * Step 1: "   -042" (leading whitespace is read and ignored)
- *             ^
+ * ^
  * Step 2: "   -042" ('-' is read, so the result should be negative)
- *              ^
+ * ^
  * Step 3: "   -042" ("042" is read in, leading zeros ignored in the result)
- *                ^
+ * ^
  * Example 3:
  * <p>
  * Input: s = "1337c0d3"
@@ -51,11 +51,11 @@ package com.ven.strings;
  * Explanation:
  * <p>
  * Step 1: "1337c0d3" (no characters read because there is no leading whitespace)
- *          ^
+ * ^
  * Step 2: "1337c0d3" (no characters read because there is neither a '-' nor '+')
- *          ^
+ * ^
  * Step 3: "1337c0d3" ("1337" is read in; reading stops because the next character is a non-digit)
- *              ^
+ * ^
  * Example 4:
  * <p>
  * Input: s = "0-1"
@@ -65,11 +65,11 @@ package com.ven.strings;
  * Explanation:
  * <p>
  * Step 1: "0-1" (no characters read because there is no leading whitespace)
- *          ^
+ * ^
  * Step 2: "0-1" (no characters read because there is neither a '-' nor '+')
- *          ^
+ * ^
  * Step 3: "0-1" ("0" is read in; reading stops because the next character is a non-digit)
- *           ^
+ * ^
  * Example 5:
  * <p>
  * Input: s = "words and 987"
@@ -80,8 +80,8 @@ package com.ven.strings;
  * <p>
  * Reading stops at the first non-digit character 'w'.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Constraints:
  * <p>
  * 0 <= s.length <= 200
@@ -90,25 +90,25 @@ package com.ven.strings;
 public class StringtoIntegerAtoI {
     public int myAtoi(String s) {
         s = s.trim();
-        if(s.length() == 0){
+        if (s.length() == 0) {
             return 0;
         }
-        long sign = s.charAt(0) == '-' ? -1: 1;
+        long sign = s.charAt(0) == '-' ? -1 : 1;
 
         //System.out.println("sign :"+sign);
         long val = 0;
         char[] ch = s.toCharArray();
 
         boolean digit = false;
-        for(int i = 0; i < ch.length; i++) {
-            if(i == 0 && (ch[i] == '+' || ch[i] =='-')){
+        for (int i = 0; i < ch.length; i++) {
+            if (i == 0 && (ch[i] == '+' || ch[i] == '-')) {
                 continue;
             }
-            if(!digit && ch[i] == '0'){
+            if (!digit && ch[i] == '0') {
                 continue;
             }
 
-            if(ch[i] < '0' || ch[i] > '9'){
+            if (ch[i] < '0' || ch[i] > '9') {
                 break;
             }
             digit = true;
@@ -126,11 +126,11 @@ public class StringtoIntegerAtoI {
             val = val * 10 + d;
         }
         //System.out.println("val :"+val);
-        val = (sign*val);
+        val = (sign * val);
 
         //System.out.println("val :"+val);
 
-        return (int)val;
+        return (int) val;
     }
 
     public static void main(String[] args) {

@@ -10,8 +10,8 @@ import java.util.Map;
  * <p>
  * You can return the answer in any order.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: nums = [2,7,11,15], target = 9
@@ -26,7 +26,7 @@ import java.util.Map;
  * Input: nums = [3,3], target = 6
  * Output: [0,1]
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 2 <= nums.length <= 104
@@ -34,17 +34,17 @@ import java.util.Map;
  * -109 <= target <= 109
  * Only one valid answer exists.
  * <p>
- *
+ * <p>
  * Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
  */
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         int[] res = new int[2];
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int diff = target - nums[i];
 
-            if(map.containsKey(diff)){
+            if (map.containsKey(diff)) {
                 res[0] = map.get(diff);
                 res[1] = i;
                 return res;

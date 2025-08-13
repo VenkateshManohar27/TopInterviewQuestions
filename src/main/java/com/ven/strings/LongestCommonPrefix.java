@@ -5,8 +5,8 @@ package com.ven.strings;
  * <p>
  * If there is no common prefix, return an empty string "".
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: strs = ["flower","flow","flight"]
@@ -17,7 +17,7 @@ package com.ven.strings;
  * Output: ""
  * Explanation: There is no common prefix among the input strings.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= strs.length <= 200
@@ -29,21 +29,21 @@ public class LongestCommonPrefix {
         StringBuilder sb = new StringBuilder();
         int length = strs[0].length();
 
-        for(String s : strs) {
+        for (String s : strs) {
             length = Math.min(length, s.length());
         }
 
-        for(int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             char c = strs[0].charAt(i);
             boolean match = true;
-            for(int j = 1; j < strs.length; j++){
-                if(strs[j].charAt(i) != c){
+            for (int j = 1; j < strs.length; j++) {
+                if (strs[j].charAt(i) != c) {
                     match = false;
                     break;
                 }
             }
 
-            if(!match)
+            if (!match)
                 break;
 
             sb.append(c);

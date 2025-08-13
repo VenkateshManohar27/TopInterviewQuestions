@@ -5,8 +5,8 @@ package com.ven.strings;
  * <p>
  * You must do this by modifying the input array in-place with O(1) extra memory.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: s = ["h","e","l","l","o"]
@@ -16,7 +16,7 @@ package com.ven.strings;
  * Input: s = ["H","a","n","n","a","h"]
  * Output: ["h","a","n","n","a","H"]
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= s.length <= 105
@@ -26,7 +26,7 @@ public class ReverseString {
     public void reverseString(char[] s) {
         int left = 0, right = s.length - 1;
 
-        while(left < right) {
+        while (left < right) {
             char temp = s[left];
             s[left++] = s[right];
             s[right--] = temp;

@@ -3,8 +3,8 @@ package com.ven.strings;
 /**
  * Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: s = "leetcode"
@@ -27,8 +27,8 @@ package com.ven.strings;
  * <p>
  * Output: -1
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Constraints:
  * <p>
  * 1 <= s.length <= 105
@@ -40,12 +40,12 @@ public class FirstUniqueCharacter {
 
         char[] ch = s.toCharArray();
 
-        for(int i = 0; i < ch.length; i++) {
+        for (int i = 0; i < ch.length; i++) {
             freq[ch[i] - 'a']++;
         }
 
-        for(int i = 0; i < ch.length; i++) {
-            if(freq[ch[i] - 'a'] == 1) {
+        for (int i = 0; i < ch.length; i++) {
+            if (freq[ch[i] - 'a'] == 1) {
                 return i;
             }
         }
