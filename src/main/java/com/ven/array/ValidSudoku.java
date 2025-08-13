@@ -11,10 +11,10 @@ package com.ven.array;
  * A Sudoku board (partially filled) could be valid but is not necessarily solvable.
  * Only the filled cells need to be validated according to the mentioned rules.
  * <p>
- *
+ * <p>
  * Example 1:
  * <p>
- *
+ * <p>
  * Input: board =
  * [["5","3",".",".","7",".",".",".","."]
  * ,["6",".",".","1","9","5",".",".","."]
@@ -41,7 +41,7 @@ package com.ven.array;
  * Output: false
  * Explanation: Same as Example 1, except with the 5 in the top left corner being modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * board.length == 9
@@ -52,10 +52,10 @@ public class ValidSudoku {
 
     public boolean isValidSudoku(char[][] board) {
 
-        for(int i = 0; i < board.length; i++) {
-            for(int j = 0; j < board[0].length; j++) {
-                if(board[i][j] != '.' &&
-                        !validate(board[i][j], i, j, board)){
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] != '.' &&
+                        !validate(board[i][j], i, j, board)) {
                     return false;
                 }
             }
@@ -72,9 +72,9 @@ public class ValidSudoku {
 
 
     private boolean validateRow(char ch, int row, int col, char[][] board) {
-        for(int i = 0; i < board[0].length; i++){
-            if(i != col && ch == board[row][i]){
-                System.out.println("Row : row :"+row+", col: "+i+", ch: "+ ch);
+        for (int i = 0; i < board[0].length; i++) {
+            if (i != col && ch == board[row][i]) {
+                System.out.println("Row : row :" + row + ", col: " + i + ", ch: " + ch);
                 return false;
             }
         }
@@ -82,9 +82,9 @@ public class ValidSudoku {
     }
 
     private boolean validateCol(char ch, int row, int col, char[][] board) {
-        for(int i = 0; i < board.length; i++){
-            if(row != i && ch == board[i][col]){
-                System.out.println("Col : row : "+i+", col : "+col+" , ch: "+ ch);
+        for (int i = 0; i < board.length; i++) {
+            if (row != i && ch == board[i][col]) {
+                System.out.println("Col : row : " + i + ", col : " + col + " , ch: " + ch);
                 return false;
             }
         }
@@ -93,14 +93,14 @@ public class ValidSudoku {
 
 
     private boolean validateBlock(char ch, int row, int col, char[][] board) {
-        int rowstart = (row >= 0 && row <=2) ? 0: (row >= 3 && row <=5)? 3: 6;
-        int colstart = (col >= 0 && col <=2) ? 0: (col >= 3 && col <=5)? 3: 6;
+        int rowstart = (row >= 0 && row <= 2) ? 0 : (row >= 3 && row <= 5) ? 3 : 6;
+        int colstart = (col >= 0 && col <= 2) ? 0 : (col >= 3 && col <= 5) ? 3 : 6;
 
 
-        for(int i = rowstart; i < rowstart + 3; i++){
-            for(int j = colstart; j < colstart + 3; j++) {
-                if(i != row && j != col && ch == board[i][j]){
-                    System.out.println("row : "+i+", col : "+col+" , ch: "+ ch);
+        for (int i = rowstart; i < rowstart + 3; i++) {
+            for (int j = colstart; j < colstart + 3; j++) {
+                if (i != row && j != col && ch == board[i][j]) {
+                    System.out.println("row : " + i + ", col : " + col + " , ch: " + ch);
                     return false;
                 }
             }
@@ -112,15 +112,15 @@ public class ValidSudoku {
         ValidSudoku validSudoku = new ValidSudoku();
         char[][] board =
                 {
-                        {'5','3','.','.','7','.','.','.','.'},
-                        {'6','.','.','1','9','5','.','.','.'},
-                        {'.','9','8','.','.','.','.','6','.'},
-                        {'8','.','.','.','6','.','.','.','3'},
-                        {'4','.','.','8','.','3','.','.','1'},
-                        {'7','.','.','.','2','.','.','.','6'},
-                        {'.','6','.','.','.','.','2','8','.'},
-                        {'.','.','.','4','1','9','.','.','5'},
-                        {'.','.','.','.','8','.','.','7','9'}
+                        {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                        {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                        {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                        {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                        {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                        {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                        {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                        {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                        {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
                 };
         boolean result = validSudoku.isValidSudoku(board);
         System.out.println("Is the Sudoku board valid? " + result); // Output: true

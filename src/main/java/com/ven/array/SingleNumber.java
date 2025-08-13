@@ -5,8 +5,8 @@ package com.ven.array;
  * <p>
  * You must implement a solution with a linear runtime complexity and use only constant extra space.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: nums = [2,2,1]
@@ -25,8 +25,8 @@ package com.ven.array;
  * <p>
  * Output: 1
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Constraints:
  * <p>
  * 1 <= nums.length <= 3 * 104
@@ -36,7 +36,7 @@ package com.ven.array;
 public class SingleNumber {
     public int singleNumber(int[] nums) {
         int num = 0;
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             num ^= nums[i];
         }
         return num;

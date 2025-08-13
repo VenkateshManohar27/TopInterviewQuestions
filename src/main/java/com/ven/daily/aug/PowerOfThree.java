@@ -5,8 +5,8 @@ package com.ven.daily.aug;
  * <p>
  * An integer n is a power of three, if there exists an integer x such that n == 3x.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: n = 27
@@ -23,7 +23,7 @@ package com.ven.daily.aug;
  * Output: false
  * Explanation: There is no x where 3x = (-1).
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * -231 <= n <= 231 - 1

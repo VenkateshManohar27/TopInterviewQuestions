@@ -3,8 +3,8 @@ package com.ven.array;
 /**
  * Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: nums = [1,2,3,4,5,6,7], k = 3
@@ -21,14 +21,14 @@ package com.ven.array;
  * rotate 1 steps to the right: [99,-1,-100,3]
  * rotate 2 steps to the right: [3,99,-1,-100]
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= nums.length <= 105
  * -231 <= nums[i] <= 231 - 1
  * 0 <= k <= 105
  * <p>
- *
+ * <p>
  * Follow up:
  * <p>
  * Try to come up with as many solutions as you can. There are at least three different ways to solve this problem.

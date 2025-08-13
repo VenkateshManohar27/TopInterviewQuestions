@@ -10,8 +10,8 @@ import java.util.List;
  * <p>
  * Return an array answers, equal in length to queries, where answers[i] is the answer to the ith query. Since the answer to the ith query may be too large, each answers[i] should be returned modulo 109 + 7.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: n = 15, queries = [[0,1],[2,2],[0,3]]
@@ -30,7 +30,7 @@ import java.util.List;
  * For n = 2, powers = [2].
  * The answer to the only query is powers[0] = 2. The answer modulo 109 + 7 is the same, so [2] is returned.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= n <= 109
@@ -39,24 +39,25 @@ import java.util.List;
  */
 public class RangeProductQueriesofPowers {
     private static final int MOD = 1_000_000_007;
+
     public int[] productQueries(int n, int[][] queries) {
         int mask = 1;
         List<Integer> l = new ArrayList<>();
-        for(int i = 0; i < 31; i++) {
-            int num = n & (mask <<i);
-            if(num != 0)
+        for (int i = 0; i < 31; i++) {
+            int num = n & (mask << i);
+            if (num != 0)
                 l.add(num);
         }
         // System.out.println(l);
         int[] res = new int[queries.length];
-        for(int i = 0; i < queries.length; i++) {
+        for (int i = 0; i < queries.length; i++) {
             int start = queries[i][0];
             int end = queries[i][1];
             long prod = 1;
-            for(int j = start; j <= end; j++) {
+            for (int j = start; j <= end; j++) {
                 prod = prod * l.get(j) % MOD;
             }
-            res[i] = (int)prod;
+            res[i] = (int) prod;
         }
         return res;
     }

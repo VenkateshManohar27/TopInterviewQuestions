@@ -1,7 +1,5 @@
 package com.ven.maths;
 
-import com.sun.jdi.IntegerType;
-
 import java.util.ArrayList;
 import java.util.List;
 

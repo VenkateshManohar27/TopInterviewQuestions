@@ -11,8 +11,8 @@ import java.util.Arrays;
  * <p>
  * For example, if n = 160 and x = 3, one way to express n is n = 23 + 33 + 53.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: n = 10, x = 2
@@ -27,7 +27,7 @@ import java.util.Arrays;
  * - n = 41 = 4.
  * - n = 31 + 11 = 4.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= n <= 300
@@ -36,24 +36,25 @@ import java.util.Arrays;
 public class WaystoExpressanIntegerasSumofPowers {
 
     private static int MOD = 1_000_000_007;
+
     public int numberOfWays(int n, int x) {
         int[][] memo = new int[301][301];
-        for(int[] m : memo) {
+        for (int[] m : memo) {
             Arrays.fill(m, -1);
         }
         return recur(n, 1, 0, x, memo);
     }
 
     private int recur(int n, int num, int sum, int pow, int[][] memo) {
-        if(n == sum) {
+        if (n == sum) {
             return 1;
         }
-        int val = (int)Math.pow(num, pow);
+        int val = (int) Math.pow(num, pow);
 
-        if(val + sum > n) {
+        if (val + sum > n) {
             return 0;
         }
-        if(memo[num][sum] != -1)
+        if (memo[num][sum] != -1)
             return memo[num][sum];
         int take = recur(n, num + 1, sum + val, pow, memo);
         int notTake = recur(n, num + 1, sum, pow, memo);
