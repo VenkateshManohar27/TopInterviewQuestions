@@ -6,23 +6,23 @@ import java.util.List;
 
 /**
  * Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
  * Output: [[1,6],[8,10],[15,18]]
  * Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
  * Example 2:
- *
+ * <p>
  * Input: intervals = [[1,4],[4,5]]
  * Output: [[1,5]]
  * Explanation: Intervals [1,4] and [4,5] are considered overlapping.
- *
- *
+ * <p>
+ * <p>
  * Constraints:
- *
+ * <p>
  * 1 <= intervals.length <= 104
  * intervals[i].length == 2
  * 0 <= starti <= endi <= 104
@@ -31,7 +31,7 @@ public class MergeIntervals {
     public int[][] merge(int[][] intervals) {
         List<int[]> li = new ArrayList<>();
         Arrays.sort(intervals, (a, b) -> {
-            if(a[0] == b[0]) {
+            if (a[0] == b[0]) {
                 return a[1] - b[1];
             } else {
                 return a[0] - b[0];
@@ -41,8 +41,8 @@ public class MergeIntervals {
         int[] prev = new int[]{intervals[0][0], intervals[0][1]};
         li.add(prev);
 
-        for(int i = 1; i < intervals.length; i++) {
-            if(prev[1] >= intervals[i][0]) {
+        for (int i = 1; i < intervals.length; i++) {
+            if (prev[1] >= intervals[i][0]) {
                 prev[1] = Math.max(prev[1], intervals[i][1]);
             } else {
                 prev = new int[]{intervals[i][0], intervals[i][1]};
@@ -52,7 +52,7 @@ public class MergeIntervals {
 
         int[][] res = new int[li.size()][2];
         int i = 0;
-        for(int[] interval: li) {
+        for (int[] interval : li) {
             res[i][0] = interval[0];
             res[i][1] = interval[1];
             i++;
