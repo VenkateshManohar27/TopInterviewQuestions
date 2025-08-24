@@ -5,21 +5,21 @@ import java.util.PriorityQueue;
 
 /**
  * Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: intervals = [[0,30],[5,10],[15,20]]
  * Output: 2
  * Example 2:
- *
+ * <p>
  * Input: intervals = [[7,10],[2,4]]
  * Output: 1
- *
- *
+ * <p>
+ * <p>
  * Constraints:
- *
+ * <p>
  * 1 <= intervals.length <= 104
  * 0 <= starti < endi <= 106
  */
@@ -27,20 +27,20 @@ public class MeetingRoomsII {
     public int minMeetingRooms(int[][] intervals) {
 
         Arrays.sort(intervals, (a, b) -> {
-            if(a[0] == b[0]) {
+            if (a[0] == b[0]) {
                 return a[1] - b[1];
-            }else {
+            } else {
                 return a[0] - b[0];
             }
         });
-        PriorityQueue<int[]> minQ = new PriorityQueue<>((a, b)->{
+        PriorityQueue<int[]> minQ = new PriorityQueue<>((a, b) -> {
             return a[1] - b[1];
         });
         int rooms = 0;
-        for(int i = 0; i < intervals.length; i++) {
+        for (int i = 0; i < intervals.length; i++) {
             int[] interval = intervals[i];
 
-            while(!minQ.isEmpty() && minQ.peek()[1] <= interval[0]){
+            while (!minQ.isEmpty() && minQ.peek()[1] <= interval[0]) {
                 minQ.poll();
             }
             minQ.offer(interval);
