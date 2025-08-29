@@ -2,9 +2,9 @@ package com.ven.medium.math;
 
 /**
  * Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
- *
+ * <p>
  * For example:
- *
+ * <p>
  * A -> 1
  * B -> 2
  * C -> 3
@@ -13,24 +13,24 @@ package com.ven.medium.math;
  * AA -> 27
  * AB -> 28
  * ...
- *
- *
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: columnTitle = "A"
  * Output: 1
  * Example 2:
- *
+ * <p>
  * Input: columnTitle = "AB"
  * Output: 28
  * Example 3:
- *
+ * <p>
  * Input: columnTitle = "ZY"
  * Output: 701
- *
- *
+ * <p>
+ * <p>
  * Constraints:
- *
+ * <p>
  * 1 <= columnTitle.length <= 7
  * columnTitle consists only of uppercase English letters.
  * columnTitle is in the range ["A", "FXSHRXW"].
