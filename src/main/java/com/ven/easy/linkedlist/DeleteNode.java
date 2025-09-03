@@ -1,5 +1,7 @@
 package com.ven.easy.linkedlist;
 
+import com.ven.linkedList.utilities.ListNode;
+
 public class DeleteNode {
 
     public void deleteNode(ListNode node) {

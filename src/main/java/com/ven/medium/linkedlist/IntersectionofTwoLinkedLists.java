@@ -1,5 +1,7 @@
 package com.ven.medium.linkedlist;
 
+import com.ven.linkedList.utilities.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 

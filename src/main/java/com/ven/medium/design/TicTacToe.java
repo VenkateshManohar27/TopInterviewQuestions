@@ -14,7 +14,7 @@ package com.ven.medium.design;
  * 1 if player 1 is the winner after the move, or
  * 2 if player 2 is the winner after the move.
  * <p>
- *
+ * <p>
  * Example 1:
  * <p>
  * Input
@@ -61,7 +61,7 @@ package com.ven.medium.design;
  * |O|O| |    // Player 1 makes a move at (2, 1).
  * |X|X|X|
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 2 <= n <= 100
@@ -70,7 +70,7 @@ package com.ven.medium.design;
  * (row, col) are unique for each different call to move.
  * At most n2 calls will be made to move.
  * <p>
- *
+ * <p>
  * Follow-up: Could you do better than O(n2) per move() operation?
  */
 public class TicTacToe {
