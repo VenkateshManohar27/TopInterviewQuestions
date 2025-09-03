@@ -1,4 +1,4 @@
-package com.ven.medium.linkedlist;
+package com.ven.linkedList.utilities;
 
 public class ListUtility {
     public static void printList(ListNode head) {

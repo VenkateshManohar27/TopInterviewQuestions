@@ -1,5 +1,7 @@
 package com.ven.easy.linkedlist;
 
+import com.ven.linkedList.utilities.ListNode;
+
 /**
  * Given the head of a linked list, remove the nth node from the end of the list and return its head.
  * <p>

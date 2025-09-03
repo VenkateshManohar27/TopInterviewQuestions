@@ -1,5 +1,7 @@
 package com.ven.easy.linkedlist;
 
+import com.ven.linkedList.utilities.ListNode;
+
 /**
  * Given head, the head of a linked list, determine if the linked list has a cycle in it.
  * <p>

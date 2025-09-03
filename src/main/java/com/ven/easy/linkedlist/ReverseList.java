@@ -1,5 +1,8 @@
 package com.ven.easy.linkedlist;
 
+import com.ven.linkedList.utilities.ListNode;
+import com.ven.linkedList.utilities.ListUtility;
+
 /**
  * Given the head of a singly linked list, reverse the list, and return the reversed list.
  * <p>
