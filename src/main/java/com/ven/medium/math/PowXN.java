@@ -61,6 +61,7 @@ public class PowXN {
         int n = 10;
         double result = solution.myPow(x, n);
         System.out.println("Result: " + result); // Expected output: 1024.00000
+
     }
 
 }
