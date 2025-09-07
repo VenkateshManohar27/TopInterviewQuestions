@@ -19,8 +19,8 @@ package com.ven.meta.easy;
  * <p>
  * A substring is a contiguous non-empty sequence of characters within a string.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: word = "internationalization", abbr = "i12iz4n"
@@ -32,7 +32,7 @@ package com.ven.meta.easy;
  * Output: false
  * Explanation: The word "apple" cannot be abbreviated as "a2e".
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= word.length <= 20
@@ -46,27 +46,27 @@ public class ValidWordAbbreviation {
         int idx = 0;
         int i = 0, j = 0;
 
-        while(i < word.length() && j < abbr.length()) {
+        while (i < word.length() && j < abbr.length()) {
             int num = 0;
             //System.out.println("["+i+","+j+"]");
-            while( j < abbr.length() && Character.isDigit(abbr.charAt(j))) {
-                if(num == 0 && abbr.charAt(j) =='0'){
+            while (j < abbr.length() && Character.isDigit(abbr.charAt(j))) {
+                if (num == 0 && abbr.charAt(j) == '0') {
                     return false;
                 }
-                num = num * 10 + (int)(abbr.charAt(j) - '0');
+                num = num * 10 + (int) (abbr.charAt(j) - '0');
                 j++;
             }
             //System.out.println("num :"+num);
-            if(num > 0) {
+            if (num > 0) {
                 i += num;
-                if(i > word.length()) {
+                if (i > word.length()) {
                     return false;
                 }
-            }else {
-                if(word.charAt(i) == abbr.charAt(j)) {
+            } else {
+                if (word.charAt(i) == abbr.charAt(j)) {
                     i++;
                     j++;
-                }else{
+                } else {
                     return false;
                 }
             }

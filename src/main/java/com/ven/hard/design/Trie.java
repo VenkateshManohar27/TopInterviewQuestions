@@ -4,15 +4,17 @@ class Node {
     Node[] children;
     boolean isEnd;
 
-    public Node (){
+    public Node() {
         children = new Node[26];
         isEnd = false;
     }
 
 
 }
+
 public class Trie {
     Node root;
+
     public Trie() {
         this.root = new Node();
     }
@@ -22,9 +24,9 @@ public class Trie {
 
         char[] chrs = word.toCharArray();
 
-        for(int i = 0; i < chrs.length; i++) {
-            int idx = chrs[i]-'a';
-            if(node.children[idx] == null){
+        for (int i = 0; i < chrs.length; i++) {
+            int idx = chrs[i] - 'a';
+            if (node.children[idx] == null) {
                 node.children[idx] = new Node();
             }
             node = node.children[idx];
@@ -37,9 +39,9 @@ public class Trie {
         Node node = root;
         char[] chrs = word.toCharArray();
 
-        for(int i = 0; i < chrs.length; i++) {
-            int idx = chrs[i]-'a';
-            if(node.children[idx] == null){
+        for (int i = 0; i < chrs.length; i++) {
+            int idx = chrs[i] - 'a';
+            if (node.children[idx] == null) {
                 return false;
             }
             node = node.children[idx];
@@ -51,9 +53,9 @@ public class Trie {
         Node node = root;
         char[] chrs = prefix.toCharArray();
 
-        for(int i = 0; i < chrs.length; i++) {
-            int idx = chrs[i]-'a';
-            if(node.children[idx] == null){
+        for (int i = 0; i < chrs.length; i++) {
+            int idx = chrs[i] - 'a';
+            if (node.children[idx] == null) {
                 return false;
             }
             node = node.children[idx];

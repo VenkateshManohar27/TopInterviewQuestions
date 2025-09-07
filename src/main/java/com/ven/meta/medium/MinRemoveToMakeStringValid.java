@@ -13,7 +13,7 @@ import java.util.Stack;
  * It can be written as AB (A concatenated with B), where A and B are valid strings, or
  * It can be written as (A), where A is a valid string.
  * <p>
- *
+ * <p>
  * Example 1:
  * <p>
  * Input: s = "lee(t(c)o)de)"
@@ -29,7 +29,7 @@ import java.util.Stack;
  * Output: ""
  * Explanation: An empty string is also valid.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= s.length <= 105
@@ -39,13 +39,13 @@ public class MinRemoveToMakeStringValid {
     public String minRemoveToMakeValid(String s) {
         Stack<Integer> parentheses = new Stack<>();
         char[] chrs = s.toCharArray();
-        for(int i = 0; i < chrs.length; i++) {
-            if(!(chrs[i] ==')' || chrs[i] == '(')) {
+        for (int i = 0; i < chrs.length; i++) {
+            if (!(chrs[i] == ')' || chrs[i] == '(')) {
                 continue;
             }
-            if(chrs[i] == ')' && !parentheses.isEmpty() && chrs[parentheses.peek()] == '(') {
+            if (chrs[i] == ')' && !parentheses.isEmpty() && chrs[parentheses.peek()] == '(') {
                 parentheses.pop();
-            }else {
+            } else {
                 parentheses.push(i);
             }
         }
@@ -55,12 +55,12 @@ public class MinRemoveToMakeStringValid {
 
         char[] str = new char[length];
 
-        for(int i = chrs.length -1, j = str.length-1; i >= 0; i--) {
-            if(!parentheses.isEmpty() && parentheses.peek() == i) {
+        for (int i = chrs.length - 1, j = str.length - 1; i >= 0; i--) {
+            if (!parentheses.isEmpty() && parentheses.peek() == i) {
                 parentheses.pop();
                 continue;
-            }else {
-                str[j--]=chrs[i];
+            } else {
+                str[j--] = chrs[i];
             }
         }
 

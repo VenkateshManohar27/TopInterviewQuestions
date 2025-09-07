@@ -9,11 +9,11 @@ import com.ven.tree.TreeNode;
  * <p>
  * The length of a path between two nodes is represented by the number of edges between them.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
- *
+ * <p>
  * Input: root = [1,2,3,4,5]
  * Output: 3
  * Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
@@ -22,7 +22,7 @@ import com.ven.tree.TreeNode;
  * Input: root = [1,2]
  * Output: 1
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * The number of nodes in the tree is in the range [1, 104].
