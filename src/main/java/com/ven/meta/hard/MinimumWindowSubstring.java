@@ -5,8 +5,8 @@ package com.ven.meta.hard;
  * <p>
  * The testcases will be generated such that the answer is unique.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: s = "ADOBECODEBANC", t = "ABC"
@@ -24,7 +24,7 @@ package com.ven.meta.hard;
  * Explanation: Both 'a's from t must be included in the window.
  * Since the largest window of s only has one 'a', return empty string.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * m == s.length
@@ -32,49 +32,48 @@ package com.ven.meta.hard;
  * 1 <= m, n <= 105
  * s and t consist of uppercase and lowercase English letters.
  * <p>
- *
+ * <p>
  * Follow up: Could you find an algorithm that runs in O(m + n) time?
  */
 public class MinimumWindowSubstring {
     public String minWindow(String s, String t) {
         int[] freq = new int[52];
 
-        int[] currFreq =  new int[52];
+        int[] currFreq = new int[52];
 
         updateFreq(t, freq);
-        int[] ans = new int[]{-1, 0 ,0};
+        int[] ans = new int[]{-1, 0, 0};
         char[] chrs = s.toCharArray();
         int left = 0;
-        for(int i = 0 ; i < chrs.length; i++)
-        {
+        for (int i = 0; i < chrs.length; i++) {
             char c = chrs[i];
-            if(Character.isLowerCase(c)) {
-                currFreq[c-'a']++;
-            }else{
-                currFreq[c-'A' +26]++;
+            if (Character.isLowerCase(c)) {
+                currFreq[c - 'a']++;
+            } else {
+                currFreq[c - 'A' + 26]++;
             }
             print(freq, currFreq);
-            if(charsFound(freq, currFreq)) {
+            if (charsFound(freq, currFreq)) {
                 // System.out.println("found all");
-                if(ans[0] == -1 || (ans[0]) > (i - left +1) ){
+                if (ans[0] == -1 || (ans[0]) > (i - left + 1)) {
                     ans[0] = i - left + 1;
                     ans[1] = left;
                     ans[2] = i;
                     // System.out.println("res :"+res);
                 }
-                while(charsFound(freq, currFreq)){
+                while (charsFound(freq, currFreq)) {
                     //  System.out.println("RESIZE");
-                    if(ans[0] == -1 || (ans[0]) > (i - left +1) ){
+                    if (ans[0] == -1 || (ans[0]) > (i - left + 1)) {
                         ans[0] = i - left + 1;
                         ans[1] = left;
                         ans[2] = i;
                         // System.out.println("res :"+res);
                     }
                     char temp = chrs[left++];
-                    if(Character.isLowerCase(temp)) {
-                        currFreq[temp-'a']--;
-                    }else{
-                        currFreq[temp-'A' +26]--;
+                    if (Character.isLowerCase(temp)) {
+                        currFreq[temp - 'a']--;
+                    } else {
+                        currFreq[temp - 'A' + 26]--;
                     }
                 }
                 //System.out.println("AFTER RESIZE "+left);
@@ -82,7 +81,7 @@ public class MinimumWindowSubstring {
 
         }
 
-        return ans[0] == -1 ? "" : s.substring(ans[1], ans[2]+1);
+        return ans[0] == -1 ? "" : s.substring(ans[1], ans[2] + 1);
     }
 
     private void print(int[] freq, int[] currFreq) {
@@ -99,8 +98,8 @@ public class MinimumWindowSubstring {
     }
 
     private boolean charsFound(int[] freq, int[] curr) {
-        for(int i = 0; i < freq.length; i++) {
-            if(freq[i] != 0 && freq[i] > curr[i]){
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] != 0 && freq[i] > curr[i]) {
                 return false;
             }
         }
@@ -110,12 +109,12 @@ public class MinimumWindowSubstring {
     private void updateFreq(String t, int[] freq) {
         char[] chrs = t.toCharArray();
 
-        for(int i = 0; i < chrs.length; i++) {
+        for (int i = 0; i < chrs.length; i++) {
             char c = chrs[i];
-            if(Character.isLowerCase(c)) {
-                freq[c-'a']++;
-            }else{
-                freq[c-'A' +26]++;
+            if (Character.isLowerCase(c)) {
+                freq[c - 'a']++;
+            } else {
+                freq[c - 'A' + 26]++;
             }
         }
     }

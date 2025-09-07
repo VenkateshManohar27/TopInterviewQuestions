@@ -18,26 +18,26 @@ import java.util.Map;
  * random_index: the index of the node (range from 0 to n-1) that the random pointer points to, or null if it does not point to any node.
  * Your code will only be given the head of the original linked list.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
- *
+ * <p>
  * Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
  * Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
  * Example 2:
  * <p>
- *
+ * <p>
  * Input: head = [[1,1],[2,1]]
  * Output: [[1,1],[2,1]]
  * Example 3:
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Input: head = [[3,null],[3,0],[3,null]]
  * Output: [[3,null],[3,0],[3,null]]
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 0 <= n <= 1000
@@ -63,7 +63,7 @@ public class CopyListRandomPointer {
         Node dummy = new Node(0);
         Node curr = dummy;
         Node oldHead = head;
-        while(head != null) {
+        while (head != null) {
             Node node = head;
             Node n = new Node(node.val);
             curr.next = n;
@@ -72,7 +72,7 @@ public class CopyListRandomPointer {
             head = head.next;
         }
         curr = dummy.next;
-        while(oldHead != null && curr != null) {
+        while (oldHead != null && curr != null) {
             Node random = oldHead.random;
 
             Node randomNew = oldToNew.get(random);
@@ -80,7 +80,6 @@ public class CopyListRandomPointer {
             curr = curr.next;
             oldHead = oldHead.next;
         }
-
 
 
         Node temp = dummy.next;
@@ -103,9 +102,9 @@ public class CopyListRandomPointer {
         head.next.next.next.next.random = head;
 
         Node newHead = copyListRandomPointer.copyRandomList(head);
-        while(newHead != null) {
+        while (newHead != null) {
             System.out.print("Node: " + newHead.val);
-            if(newHead.random != null) {
+            if (newHead.random != null) {
                 System.out.print(", Random: " + newHead.random.val);
             } else {
                 System.out.print(", Random: null");
