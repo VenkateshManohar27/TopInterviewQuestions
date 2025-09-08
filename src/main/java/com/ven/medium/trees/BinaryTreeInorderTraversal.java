@@ -1,5 +1,7 @@
 package com.ven.medium.trees;
 
+import com.ven.tree.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
