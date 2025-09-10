@@ -1,5 +1,7 @@
 package com.ven.easy.tree;
 
+import com.ven.tree.TreeNode;
+
 /**
  * Given the root of a binary tree, return its maximum depth.
  * <p>
