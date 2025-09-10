@@ -1,5 +1,7 @@
 package com.ven.easy.tree;
 
+import com.ven.tree.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
