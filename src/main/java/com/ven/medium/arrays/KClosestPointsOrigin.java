@@ -11,11 +11,11 @@ import java.util.Comparator;
  * <p>
  * You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
- *
+ * <p>
  * Input: points = [[1,3],[-2,2]], k = 1
  * Output: [[-2,2]]
  * Explanation:
@@ -29,7 +29,7 @@ import java.util.Comparator;
  * Output: [[3,3],[-2,4]]
  * Explanation: The answer [[-2,4],[3,3]] would also be accepted.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= k <= points.length <= 104
@@ -40,7 +40,7 @@ public class KClosestPointsOrigin {
         Arrays.sort(points, Comparator.comparingInt(a -> ((a[0]) * (a[0]) + (a[1]) * (a[1]))));
         int[][] res = new int[k][2];
 
-        for(int i = 0; i < k; i++) {
+        for (int i = 0; i < k; i++) {
             res[i][0] = points[i][0];
             res[i][1] = points[i][1];
             //System.out.print("["+points[i][0]+","+points[i][1]+"]");

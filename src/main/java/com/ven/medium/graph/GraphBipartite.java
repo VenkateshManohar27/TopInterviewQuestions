@@ -11,22 +11,22 @@ package com.ven.medium.graph;
  * <p>
  * Return true if and only if it is bipartite.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
- *
+ * <p>
  * Input: graph = [[1,2,3],[0,2],[0,1,3],[0,2]]
  * Output: false
  * Explanation: There is no way to partition the nodes into two independent sets such that every edge connects a node in one and a node in the other.
  * Example 2:
  * <p>
- *
+ * <p>
  * Input: graph = [[1,3],[0,2],[1,3],[0,2]]
  * Output: true
  * Explanation: We can partition the nodes into two sets: {0, 2} and {1, 3}.
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * graph.length == n
@@ -43,9 +43,9 @@ public class GraphBipartite {
         int n = graph.length;
         int[] seen = new int[n];
 
-        for(int i = 0; i < n; i++) {
-            if(seen[i] == 0) {
-                if(!dfs(i, graph, -1, seen)){
+        for (int i = 0; i < n; i++) {
+            if (seen[i] == 0) {
+                if (!dfs(i, graph, -1, seen)) {
                     return false;
                 }
             }
@@ -54,15 +54,15 @@ public class GraphBipartite {
     }
 
     private boolean dfs(int i, int[][] g, int color, int[] seen) {
-        if(seen[i] != 0) {
+        if (seen[i] != 0) {
             return seen[i] == color;
         }
 
 
         seen[i] = color;
         color = color * -1;
-        for(int j = 0; j < g[i].length; j++) {
-            if(!dfs(g[i][j], g, color, seen)) {
+        for (int j = 0; j < g[i].length; j++) {
+            if (!dfs(g[i][j], g, color, seen)) {
                 return false;
             }
         }

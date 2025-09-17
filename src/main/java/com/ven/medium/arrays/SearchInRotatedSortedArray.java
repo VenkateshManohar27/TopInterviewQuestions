@@ -9,8 +9,8 @@ package com.ven.medium.arrays;
  * <p>
  * You must write an algorithm with O(log n) runtime complexity.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
  * Input: nums = [4,5,6,7,0,1,2], target = 0
@@ -24,7 +24,7 @@ package com.ven.medium.arrays;
  * Input: nums = [1], target = 0
  * Output: -1
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * 1 <= nums.length <= 5000
@@ -35,37 +35,37 @@ package com.ven.medium.arrays;
  */
 public class SearchInRotatedSortedArray {
     public int search(int[] nums, int target) {
-        int left = 0 , right = nums.length - 1;
+        int left = 0, right = nums.length - 1;
         int n = nums.length;
-        while(left <= right) {
-            int mid = left + (right -left) /2 ;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if(nums[mid] > nums[n-1]) {
+            if (nums[mid] > nums[n - 1]) {
                 left = mid + 1;
-            }else{
-                right = mid -1;
+            } else {
+                right = mid - 1;
             }
         }
-        System.out.println("left :"+left);
-        int res = binarySearch(nums, 0, left -1, target);
-        if(res != -1) {
+        System.out.println("left :" + left);
+        int res = binarySearch(nums, 0, left - 1, target);
+        if (res != -1) {
             return res;
         }
 
-        return binarySearch(nums, left, n-1, target);
+        return binarySearch(nums, left, n - 1, target);
     }
 
     private int binarySearch(int[] nums, int left, int right, int t) {
 
-        while(left <= right) {
-            int mid = left + (right -left) /2 ;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if(nums[mid] == t) {
+            if (nums[mid] == t) {
                 return mid;
-            }else if(nums[mid] < t){
+            } else if (nums[mid] < t) {
                 left = mid + 1;
-            }else{
-                right = mid -1;
+            } else {
+                right = mid - 1;
             }
         }
         return -1;
@@ -73,7 +73,7 @@ public class SearchInRotatedSortedArray {
 
     public static void main(String[] args) {
         SearchInRotatedSortedArray solution = new SearchInRotatedSortedArray();
-        int[] nums = {4,5,6,7,0,1,2};
+        int[] nums = {4, 5, 6, 7, 0, 1, 2};
         int target = 0;
         int result = solution.search(nums, target);
         System.out.println("Index of target " + target + ": " + result); // Expected output: 4
