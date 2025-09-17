@@ -14,11 +14,11 @@ import java.util.Stack;
  * <p>
  * You may assume that next() calls will always be valid. That is, there will be at least a next number in the in-order traversal when next() is called.
  * <p>
- *
- *
+ * <p>
+ * <p>
  * Example 1:
  * <p>
- *
+ * <p>
  * Input
  * ["BSTIterator", "next", "next", "hasNext", "next", "hasNext", "next", "hasNext", "next", "hasNext"]
  * [[[7, 3, 15, null, null, 9, 20]], [], [], [], [], [], [], [], [], []]
@@ -37,14 +37,14 @@ import java.util.Stack;
  * bSTIterator.next();    // return 20
  * bSTIterator.hasNext(); // return False
  * <p>
- *
+ * <p>
  * Constraints:
  * <p>
  * The number of nodes in the tree is in the range [1, 105].
  * 0 <= Node.val <= 106
  * At most 105 calls will be made to hasNext, and next.
  * <p>
- *
+ * <p>
  * Follow up:
  * <p>
  * Could you implement next() and hasNext() to run in average O(1) time and use O(h) memory, where h is the height of the tree?
@@ -52,11 +52,12 @@ import java.util.Stack;
 public class BSTIterator {
 
     private Stack<TreeNode> st;
+
     public BSTIterator(TreeNode root) {
         st = new Stack<>();
         st.push(root);
         TreeNode node = root;
-        while(node.left != null) {
+        while (node.left != null) {
             st.push(node.left);
             node = node.left;
         }
@@ -65,10 +66,10 @@ public class BSTIterator {
     public int next() {
         TreeNode node = st.pop();
 
-        if(node.right != null) {
+        if (node.right != null) {
             st.push(node.right);
             TreeNode curr = node.right;
-            while(curr.left != null) {
+            while (curr.left != null) {
                 st.push(curr.left);
                 curr = curr.left;
             }
