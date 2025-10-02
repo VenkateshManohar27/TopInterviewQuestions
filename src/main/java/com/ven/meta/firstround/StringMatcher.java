@@ -40,13 +40,13 @@ public class StringMatcher {
 
     public static void main(String[] args) {
         StringMatcher matcher = new StringMatcher();
-        System.out.println( matcher.match("i18n", "internationalization")); // true
-        System.out.println( matcher.match("f6k", "facebook")); // true
-        System.out.println( matcher.match("f6k", "focus")); // false
-        System.out.println( matcher.match("a3b", "applepieb")); // false
-        System.out.println( matcher.match("a3b", "aplepieb")); // false (wrong number of skipped chars)
-        System.out.println( matcher.match("abc", "abc")); // true
-        System.out.println( matcher.match("a1b", "ab")); // false
-        System.out.println( matcher.match("a1b", "acb")); // true
+        System.out.println(matcher.match("i18n", "internationalization")); // true
+        System.out.println(matcher.match("f6k", "facebook")); // true
+        System.out.println(matcher.match("f6k", "focus")); // false
+        System.out.println(matcher.match("a3b", "applepieb")); // false
+        System.out.println(matcher.match("a3b", "aplepieb")); // false (wrong number of skipped chars)
+        System.out.println(matcher.match("abc", "abc")); // true
+        System.out.println(matcher.match("a1b", "ab")); // false
+        System.out.println(matcher.match("a1b", "acb")); // true
     }
 }
