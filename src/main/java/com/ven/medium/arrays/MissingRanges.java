@@ -41,35 +41,22 @@ public class MissingRanges {
     public List<List<Integer>> findMissingRanges(int[] nums, int lower, int upper) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums.length == 0) {
-            List<Integer> l = new ArrayList<>();
-            l.add(lower);
-            l.add(upper);
-            res.add(l);
+            res.add(List.of(lower, upper));
             return res;
         }
 
         if (lower < nums[0]) {
-            List<Integer> l = new ArrayList<>();
-            l.add(lower);
-            l.add(nums[0] - 1);
-            res.add(l);
+            res.add(List.of(lower, nums[0] - 1));
         }
 
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] - nums[i - 1] > 1) {
-                List<Integer> l = new ArrayList<>();
-                l.add(nums[i - 1] + 1);
-                l.add(nums[i] - 1);
-                res.add(l);
+                res.add(List.of(nums[i - 1] + 1, nums[i] - 1));
             }
-
         }
 
         if (upper > nums[nums.length - 1]) {
-            List<Integer> l = new ArrayList<>();
-            l.add(nums[nums.length - 1] + 1);
-            l.add(upper);
-            res.add(l);
+            res.add(List.of(nums[nums.length - 1] + 1, upper));
         }
         return res;
     }
