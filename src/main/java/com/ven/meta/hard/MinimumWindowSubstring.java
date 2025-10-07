@@ -1,5 +1,7 @@
 package com.ven.meta.hard;
 
+import java.util.Arrays;
+
 /**
  * Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
  * <p>
@@ -36,87 +38,64 @@ package com.ven.meta.hard;
  * Follow up: Could you find an algorithm that runs in O(m + n) time?
  */
 public class MinimumWindowSubstring {
+
     public String minWindow(String s, String t) {
+        char[] tchar = t.toCharArray();
         int[] freq = new int[52];
 
-        int[] currFreq = new int[52];
+        for (int i = 0; i < tchar.length; i++) {
+            incrFreq(tchar[i], freq);
+        }
 
-        updateFreq(t, freq);
-        int[] ans = new int[]{-1, 0, 0};
-        char[] chrs = s.toCharArray();
-        int left = 0;
-        for (int i = 0; i < chrs.length; i++) {
-            char c = chrs[i];
-            if (Character.isLowerCase(c)) {
-                currFreq[c - 'a']++;
-            } else {
-                currFreq[c - 'A' + 26]++;
-            }
-            print(freq, currFreq);
-            if (charsFound(freq, currFreq)) {
-                // System.out.println("found all");
-                if (ans[0] == -1 || (ans[0]) > (i - left + 1)) {
-                    ans[0] = i - left + 1;
-                    ans[1] = left;
-                    ans[2] = i;
-                    // System.out.println("res :"+res);
+        int l = 0;
+        char[] chr = s.toCharArray();
+        int minimum = Math.max(chr.length, tchar.length) + 1;
+        int[] window = new int[2];
+        Arrays.fill(window, -1);
+        int[] curr = new int[52];
+        for (int r = 0; r < chr.length; r++) {
+            incrFreq(chr[r], curr);
+            while (l <= r && allCharFreqMatch(freq, curr)) {
+                //System.out.println("matched : "+c);
+                if (r - l + 1 < minimum) {
+                    minimum = r - l + 1;
+                    window[0] = l;
+                    window[1] = r;
                 }
-                while (charsFound(freq, currFreq)) {
-                    //  System.out.println("RESIZE");
-                    if (ans[0] == -1 || (ans[0]) > (i - left + 1)) {
-                        ans[0] = i - left + 1;
-                        ans[1] = left;
-                        ans[2] = i;
-                        // System.out.println("res :"+res);
-                    }
-                    char temp = chrs[left++];
-                    if (Character.isLowerCase(temp)) {
-                        currFreq[temp - 'a']--;
-                    } else {
-                        currFreq[temp - 'A' + 26]--;
-                    }
-                }
-                //System.out.println("AFTER RESIZE "+left);
+                decrFreq(chr[l++], curr);
             }
 
         }
+        if (window[0] == -1) {
+            return "";
+        }
+        return s.substring(window[0], window[1] + 1);
 
-        return ans[0] == -1 ? "" : s.substring(ans[1], ans[2] + 1);
     }
 
-    private void print(int[] freq, int[] currFreq) {
-//         System.out.println("================");
-//         for(int i = 0; i < freq.length; i++) {
-//             System.out.print(freq[i] +",");
-//         }
-//         System.out.println("xx");
-//         for(int i = 0; i < currFreq.length; i++) {
-//             System.out.print(currFreq[i] +",");
-//         }
-
-//         System.out.println("================");
+    private void incrFreq(char c, int[] f) {
+        if (c >= 'a' && c <= 'z') {
+            f[c - 'a']++;
+        } else {
+            f[c - 'A' + 26]++;
+        }
     }
 
-    private boolean charsFound(int[] freq, int[] curr) {
+    private void decrFreq(char c, int[] f) {
+        if (c >= 'a' && c <= 'z') {
+            f[c - 'a']--;
+        } else {
+            f[c - 'A' + 26]--;
+        }
+    }
+
+    private boolean allCharFreqMatch(int[] freq, int[] curr) {
         for (int i = 0; i < freq.length; i++) {
-            if (freq[i] != 0 && freq[i] > curr[i]) {
+            if (freq[i] > curr[i]) {
                 return false;
             }
         }
         return true;
-    }
-
-    private void updateFreq(String t, int[] freq) {
-        char[] chrs = t.toCharArray();
-
-        for (int i = 0; i < chrs.length; i++) {
-            char c = chrs[i];
-            if (Character.isLowerCase(c)) {
-                freq[c - 'a']++;
-            } else {
-                freq[c - 'A' + 26]++;
-            }
-        }
     }
 
     public static void main(String[] args) {
