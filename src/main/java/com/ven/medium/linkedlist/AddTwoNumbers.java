@@ -33,30 +33,32 @@ import com.ven.linkedList.utilities.ListNode;
  */
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode res = new ListNode();
-        ListNode curr = res;
         int carry = 0;
-        while (l1 != null || l2 != null || carry > 0) {
+        ListNode n1 = l1;
+        ListNode n2 = l2;
+        ListNode dummy = new ListNode();
+        ListNode curr = dummy;
+        while (n1 != null || n2 != null || carry > 0) {
+            int val1 = 0;
 
-            int num = (l1 != null) ? l1.val : 0;
+            if (n1 != null) {
+                val1 = n1.val;
+                n1 = n1.next;
+            }
+            int val2 = 0;
+            if (n2 != null) {
+                val2 = n2.val;
+                n2 = n2.next;
+            }
+            int sum = val1 + val2 + carry;
 
-            int num2 = (l2 != null) ? l2.val : 0;
-
-
-            int sum = carry + num + num2;
-
+            ListNode node = new ListNode(sum % 10);
             carry = sum / 10;
-
-            curr.next = new ListNode(sum % 10);
+            curr.next = node;
             curr = curr.next;
-            if (l1 != null)
-                l1 = l1.next;
-            if (l2 != null)
-                l2 = l2.next;
         }
 
-
-        return res.next;
+        return dummy.next;
     }
 
     public static void main(String[] args) {

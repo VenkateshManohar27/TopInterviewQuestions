@@ -141,3 +141,45 @@ class MinStack2 {
         System.out.println(minStack.getMin()); // return -2
     }
 }
+
+class MinStackWithOneStack {
+    private Stack<int[]> stack;
+
+    public MinStackWithOneStack() {
+        stack = new Stack<>();
+    }
+
+    public void push(int val) {
+        if (stack.isEmpty()) {
+            stack.push(new int[]{val, val});
+        } else {
+            int currentMin = stack.peek()[1];
+            stack.push(new int[]{val, Math.min(val, currentMin)});
+        }
+    }
+
+    public void pop() {
+        if (!stack.isEmpty()) {
+            stack.pop();
+        }
+    }
+
+    public int top() {
+        return stack.isEmpty() ? -1 : stack.peek()[0];
+    }
+
+    public int getMin() {
+        return stack.isEmpty() ? -1 : stack.peek()[1];
+    }
+
+    public static void main(String[] args) {
+        MinStackWithOneStack minStack = new MinStackWithOneStack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        System.out.println(minStack.getMin()); // return -3
+        minStack.pop();
+        System.out.println(minStack.top());    // return 0
+        System.out.println(minStack.getMin()); // return -2
+    }
+}
