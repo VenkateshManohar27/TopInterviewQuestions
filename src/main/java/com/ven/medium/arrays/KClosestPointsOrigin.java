@@ -3,6 +3,7 @@ package com.ven.medium.arrays;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /**
  * Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
@@ -47,6 +48,35 @@ public class KClosestPointsOrigin {
         }
         //System.out.println();
         return res;
+    }
+
+    public int[][] kClosest2(int[][] points, int k) {
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) ->
+                b[0] - a[0]
+        );
+
+        for (int i = 0; i < points.length; i++) {
+            pq.offer(new int[]{squaredDistance(points[i]), i});
+
+            while (pq.size() > k) {
+                pq.poll();
+            }
+        }
+
+        int[][] res = new int[k][2];
+        int j = 0;
+
+        while (!pq.isEmpty()) {
+            int[] point = pq.poll();
+            res[j] = points[point[1]];
+            j++;
+        }
+
+        return res;
+    }
+
+    private int squaredDistance(int[] p) {
+        return p[0] * p[0] + p[1] * p[1];
     }
 
     public static void main(String[] args) {
