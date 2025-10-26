@@ -1,11 +1,11 @@
 package com.ven.hard.design;
 
 class Node {
-    Node[] children;
+    CharNode[] children;
     boolean isEnd;
 
     public Node() {
-        children = new Node[26];
+        children = new CharNode[26];
         isEnd = false;
     }
 
@@ -13,21 +13,21 @@ class Node {
 }
 
 public class Trie {
-    Node root;
+    CharNode root;
 
     public Trie() {
-        this.root = new Node();
+        this.root = new CharNode();
     }
 
     public void insert(String word) {
-        Node node = root;
+        CharNode node = root;
 
         char[] chrs = word.toCharArray();
 
         for (int i = 0; i < chrs.length; i++) {
             int idx = chrs[i] - 'a';
             if (node.children[idx] == null) {
-                node.children[idx] = new Node();
+                node.children[idx] = new CharNode();
             }
             node = node.children[idx];
         }
@@ -36,7 +36,7 @@ public class Trie {
     }
 
     public boolean search(String word) {
-        Node node = root;
+        CharNode node = root;
         char[] chrs = word.toCharArray();
 
         for (int i = 0; i < chrs.length; i++) {
@@ -50,7 +50,7 @@ public class Trie {
     }
 
     public boolean startsWith(String prefix) {
-        Node node = root;
+        CharNode node = root;
         char[] chrs = prefix.toCharArray();
 
         for (int i = 0; i < chrs.length; i++) {
